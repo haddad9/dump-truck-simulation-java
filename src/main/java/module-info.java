@@ -7,6 +7,7 @@ module discrete.simulation.drumtruck {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires lombok;
 
     opens discrete.simulation.drumtruck to javafx.fxml;
     exports discrete.simulation.drumtruck;
