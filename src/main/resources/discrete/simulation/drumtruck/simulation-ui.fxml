@@ -67,17 +67,17 @@
 
     <TableView fx:id="weighingDistribution" GridPane.rowIndex="1"  GridPane.columnIndex="0">
         <columns>
-            <TableColumn text="Weighing Time" fx:id="wtime">
+            <TableColumn text="Weighing Time"  >
                 <cellValueFactory>
                     <PropertyValueFactory property="value"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Distribution" fx:id="wprob">
+            <TableColumn text="Distribution" >
                 <cellValueFactory>
                     <PropertyValueFactory property="probability"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Cumulative Distribution"  fx:id="wcumulative">
+            <TableColumn text="Cumulative Distribution" >
                 <cellValueFactory>
                     <PropertyValueFactory property="cumulativeProbability"/>
                 </cellValueFactory>
@@ -87,17 +87,17 @@
 
     <TableView fx:id="travelDistribution" GridPane.rowIndex="2"  GridPane.columnIndex="0">
         <columns>
-            <TableColumn text="Travel Time"  fx:id="ttime">
+            <TableColumn text="Travel Time"  >
                 <cellValueFactory>
                     <PropertyValueFactory property="value"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Distribution"  fx:id="tprob">
+            <TableColumn text="Distribution"  >
                 <cellValueFactory>
                     <PropertyValueFactory property="probability"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Cumulative Distribution" fx:id="tcumulative">
+            <TableColumn text="Cumulative Distribution" >
                 <cellValueFactory>
                     <PropertyValueFactory property="cumulativeProbability"/>
                 </cellValueFactory>

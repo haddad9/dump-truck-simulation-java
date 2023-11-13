@@ -2,7 +2,7 @@ package discrete.simulation.drumtruck.controller;
 
 import discrete.simulation.drumtruck.data.DistributionTableRow;
 import discrete.simulation.drumtruck.data.DistributionTable;
-import javafx.beans.value.ObservableNumberValue;
+import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +18,7 @@ public class SimulationUIController implements Initializable {
 
     @FXML
     public void startSimulation(ActionEvent actionEvent) {
+
     }
 
     @FXML
@@ -55,7 +56,6 @@ public class SimulationUIController implements Initializable {
 
     private void populateTable(TableView<DistributionTableRow> tableView, ObservableList<DistributionTableRow> data) {
 //      get column
-
         tableView.setItems(data);
         TableColumn<DistributionTableRow, Integer> tcTime = (TableColumn<DistributionTableRow, Integer>) tableView.getColumns().get(0);
         TableColumn<DistributionTableRow, Integer> tcDist = (TableColumn<DistributionTableRow, Integer>) tableView.getColumns().get(1);
@@ -63,13 +63,10 @@ public class SimulationUIController implements Initializable {
 
         tcTime.prefWidthProperty().bind(tableView.widthProperty()
                         .divide(3));
-
         tcCuml.prefWidthProperty().bind(tableView.widthProperty()
                 .divide(3));
         tcDist.prefWidthProperty().bind(tableView.widthProperty()
                 .divide(3));
-
-
 
     }
 }

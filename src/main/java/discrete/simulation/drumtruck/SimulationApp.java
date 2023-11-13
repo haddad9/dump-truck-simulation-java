@@ -11,6 +11,7 @@ public class SimulationApp extends Application{
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SimulationApp.class.getResource("simulation-ui.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+        scene.getStylesheets().add(String.valueOf(SimulationApp.class.getResource("style.css")));
         stage.setTitle("Dump Truck Simulation");
         stage.setScene(scene);
         stage.show();
