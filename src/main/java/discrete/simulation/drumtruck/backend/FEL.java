@@ -5,12 +5,14 @@ import lombok.Data;
 @Data
 public class FEL implements Comparable<FEL>{
     private EventNotice event;
-    private int time;
+    private int endTime;
     private Truck t;
+    private int startTime;
 
-    public FEL(EventNotice eventNotice, int time, Truck t) {
+    public FEL(EventNotice eventNotice, int startTime,int endTime, Truck t) {
+        this.startTime = startTime;
         this.event = eventNotice;
-        this.time = time;
+        this.endTime = endTime;
         this.t = t;
     }
 
@@ -18,14 +20,17 @@ public class FEL implements Comparable<FEL>{
         return test;
     }
 
+    public int busyTime() {
+        return endTime - startTime;
+    }
     @Override
     public String toString() {
-        return "(" + event + ", " + time + ", " + t + ")";
+        return "(" + event + ", " + endTime + ", " + t + ")";
     }
 
     @Override
 //    compare in ascending order
     public int compareTo(FEL fel) {
-        return this.time - fel.time;
+        return this.endTime - fel.endTime;
     }
 }
