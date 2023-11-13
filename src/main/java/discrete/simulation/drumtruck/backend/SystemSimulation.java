@@ -9,6 +9,7 @@ import java.util.Queue;
 
 @Data
 public class SystemSimulation {
+
     private Queue<FEL> fel;
     private Queue<Truck> loadQ; //loaded queue
     private Queue<Truck> weighQ; //weighing queue
