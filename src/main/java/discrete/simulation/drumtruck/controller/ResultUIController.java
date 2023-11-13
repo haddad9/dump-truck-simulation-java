@@ -62,13 +62,13 @@ public class ResultUIController{
                 new LineChart<Number,Number>(xAxis2,yAxis2);
         lineChart2.setTitle("Loader vs Scaler Total Truck in Queue");
         XYChart.Series seriesQ1 = new XYChart.Series();
-        series1.setName("Loader Queue ");
+        seriesQ1.setName("Loader Queue ");
         for (ResultRow resultRow: resultRows
         ) {
             seriesQ1.getData().add(new XYChart.Data(resultRow.getClock(), resultRow.getLQt()));
         }
         XYChart.Series seriesQ2 = new XYChart.Series();
-        series2.setName("Scaler Queue");
+        seriesQ2.setName("Scaler Queue");
         for (ResultRow resultRow: resultRows
         ) {
             seriesQ2.getData().add(new XYChart.Data(resultRow.getClock(), resultRow.getWQt()));
