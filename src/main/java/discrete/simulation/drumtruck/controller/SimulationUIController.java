@@ -57,12 +57,17 @@ public class SimulationUIController implements Initializable {
 //      get column
 
         tableView.setItems(data);
+        TableColumn<DistributionTableRow, Integer> tcTime = (TableColumn<DistributionTableRow, Integer>) tableView.getColumns().get(0);
+        TableColumn<DistributionTableRow, Integer> tcDist = (TableColumn<DistributionTableRow, Integer>) tableView.getColumns().get(1);
+        TableColumn<DistributionTableRow, Integer> tcCuml = (TableColumn<DistributionTableRow, Integer>) tableView.getColumns().get(2);
 
-        TableColumn<DistributionTableRow, Integer> valueColumn = (TableColumn<DistributionTableRow, Integer>) tableView.getColumns().get(2);
-        valueColumn.prefWidthProperty().bind(tableView.widthProperty().
-                subtract((ObservableNumberValue) tableView.getColumns().get(0).widthProperty())
-                .subtract((ObservableNumberValue) tableView.getColumns().get(1).widthProperty())
-                .subtract(2));
+        tcTime.prefWidthProperty().bind(tableView.widthProperty()
+                        .divide(3));
+
+        tcCuml.prefWidthProperty().bind(tableView.widthProperty()
+                .divide(3));
+        tcDist.prefWidthProperty().bind(tableView.widthProperty()
+                .divide(3));
 
 
 
