@@ -12,7 +12,7 @@ public class SimulationApp extends Application{
         FXMLLoader fxmlLoader = new FXMLLoader(SimulationApp.class.getResource("simulation-ui.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
         scene.getStylesheets().add(String.valueOf(SimulationApp.class.getResource("style.css")));
-        stage.setTitle("Dump Truck Simulation");
+        stage.setTitle("Dump Truck Simulation — Haddad");
         stage.setScene(scene);
         stage.show();
     }

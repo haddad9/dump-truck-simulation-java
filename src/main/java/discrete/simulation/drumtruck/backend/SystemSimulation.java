@@ -1,5 +1,9 @@
 package discrete.simulation.drumtruck.backend;
 
+import discrete.simulation.drumtruck.data.ResultRow;
+import javafx.beans.property.IntegerProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lombok.Data;
 
 
@@ -21,6 +25,8 @@ public class SystemSimulation {
     private  int simulationTime;
     private int busyScalerTime;
     private int busyLoaderTime;
+    private ObservableList<ResultRow> rows = FXCollections.observableArrayList();
+
 
     public SystemSimulation(int simulationTime,  int numTruck, int[] valuesLoad, double[] probabilitiesLoad, int[] valuesWeigh, double[] probabilitiesWeigh, int[] valuesTravel, double[] probabilitiesTravel ) {
         this.simulationTime = simulationTime;
@@ -41,17 +47,16 @@ public class SystemSimulation {
 
     }
 
-    public void simulate(){
-        System.out.println("CLOCK === LQ(t) === WQ(t) === W(t) === L(t) === LOADQ === WEIGHQ === FEL || BS || BL");
+    public ObservableList<ResultRow> simulate(){
+
         while ( clock < simulationTime){
             LQt = loadQ.size();
             WQt = weighQ.size();
             String loadqString = loadQ.stream().map(Truck::toString).reduce("", (acc, val) -> acc + val);
             String weighqString = weighQ.stream().map(Truck::toString).reduce("", (acc, val) -> acc + val);
             String felString = fel.stream().map(FEL::toString).reduce("", (acc, val) -> acc + val);
-            System.out.println(String.
-                    format("%s ===  %s === %s ===  %s === %s === %s xxxx %s === %s ||| %s ||| %s ",
-                            clock,LQt,WQt, Wt, Lt, loadqString, weighqString, felString, busyLoaderTime, busyScalerTime));
+
+            rows.add(new ResultRow(clock, LQt, WQt, Wt, Lt, loadqString, weighqString, felString, busyLoaderTime, busyScalerTime));
             FEL felEvent = fel.poll();
             clock = felEvent.getEndTime();
             switch (felEvent.getEvent()){
@@ -102,6 +107,7 @@ public class SystemSimulation {
                     break;
             }
         }
+        return rows;
     }
 
 }

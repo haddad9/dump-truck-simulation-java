@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.layout.HBox?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+
+      spacing="10"
+      fx:controller="discrete.simulation.drumtruck.controller.ResultUIController">
+
+        <TableView fx:id="resultTable" VBox.vgrow="SOMETIMES">
+            <columns>
+                <TableColumn text="CLOCK" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="clock"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="LQ(t)" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="LQt"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="WQ(t)" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="WQt"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="W(t)" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Wt"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="L(t)" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Lt"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Load Queue" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="loadQ"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+
+                <TableColumn text="Weigh Queue" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="weighQ"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="FEL" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="fel"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="BL" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="busyLoaderTime"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="BS" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="busyScalerTime"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+
+            </columns>
+        </TableView>
+    <HBox alignment="BOTTOM_RIGHT">
+    <Button text="statistics" onAction="#statistics"/>
+    </HBox>
+</VBox>
